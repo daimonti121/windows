@@ -10,7 +10,13 @@ function openModal(modalSelector) {
     modal.classList.add('show');
     modal.classList.remove('hide');
     document.body.style.overflow = 'hidden';
+
+    if(time) {
+        clearInterval(time);
+    }
 }
+
+const time = setInterval(() => openModal('.popup_engineer'), 60000);
 
 function modal(triggerSelector, modalSelector) {
     const modalTrigger = document.querySelector(triggerSelector);
