@@ -16,7 +16,7 @@ function openModal(modalSelector) {
     }
 }
 
-const time = setInterval(() => openModal('.popup_engineer'), 60000);
+// const time = setInterval(() => openModal('.popup_engineer'), 6000);
 
 function modal(triggerSelector, modalSelector) {
     const modalTrigger = document.querySelector(triggerSelector);

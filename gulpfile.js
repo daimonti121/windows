@@ -45,7 +45,7 @@ gulp.task("build-js", () => {
 });
 
 gulp.task("copy-assets", () => {
-  return gulp.src("./src/assets/**/*.*")
+  return gulp.src("./src/assets/**/*.*", { encoding: false })
     .pipe(gulp.dest(dist + "/assets"))
     .on("end", browsersync.reload);
 });
