@@ -1,3 +1,5 @@
+import checkNumInputs from "./CheckNumInputs";
+
 const changeModalState = (state) => {
 
     const windowForm = document.querySelectorAll('.balcon_icons_img'),
@@ -6,12 +8,16 @@ const changeModalState = (state) => {
         windowType = document.querySelector('#view_type'),
         windowProfile = document.querySelectorAll('.checkbox');
 
-        windowForm.forEach((item, i) => {
-            item.addEventListener('click', () => {
-                state.form = i;
-                console.log(state);
-            })
-        });
+    checkNumInputs('#width');
+    checkNumInputs('#height');
+
+    windowForm.forEach((item, i) => {
+        item.addEventListener('click', () => {
+            state.form = i;
+            console.log(state);          
+        })
+    });
+
 };
 
 export default changeModalState;
