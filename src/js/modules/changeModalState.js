@@ -47,4 +47,14 @@ const changeModalState = (state) => {
     bindActionToElems('change', windowProfile, 'type');
 };
 
+const firstButtonNext = document.querySelector('.popup_calc_button');
+
+firstButtonNext.addEventListener('click', (e) => {
+    let x = false;
+    if (x == false) {
+        e.preventDefault();
+        console.log('you cant click');
+    }
+});
+
 export default changeModalState;
