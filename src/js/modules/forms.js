@@ -38,11 +38,14 @@ const forms = (state) => {
             item.appendChild(statusMessage);
 
             const formData = new FormData(item);
+            
             if(item.getAttribute('data-calc') === "end") {
                 for (let key in state) {
                     formData.append(key, state[key]);
                 }
             }
+
+            state = {};
 
             postData('assets/server.php', formData)
                 .then(res => {

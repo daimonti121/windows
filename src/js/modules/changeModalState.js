@@ -11,32 +11,33 @@ const changeModalState = (state) => {
     checkNumInputs('#width');
     checkNumInputs('#height');
 
-    function bindActionToElems(event, elem, prop) {
+    function bindActionToElems (event, elem, prop) {
         elem.forEach((item, i) => {
             item.addEventListener(event, () => {
-                switch (item.nodeName) {
-                    case 'SPAN':
-                        state[prop] = i + 1;
+                switch(item.nodeName) {
+                    case 'SPAN' :
+                        state[prop] = i;
                         break;
-                    case 'INPUT':
+                    case 'INPUT' :
                         if (item.getAttribute('type') === 'checkbox') {
-                            i === 0 ? state[prop] = "Холодное" : state[prop] = "Тёплое";
-                            elem.forEach((item, j) => {
-                                item.checked = false;
+                            i === 0 ? state[prop] = "Холодное" : state[prop] = "Теплое";
+                            elem.forEach((box, j) => {
+                                box.checked = false;
                                 if (i == j) {
-                                    item.checked = true;
+                                    box.checked = true;
                                 }
-                            })
+                            });
                         } else {
                             state[prop] = item.value;
                         }
                         break;
-                    case 'SELECT':
+                    case 'SELECT' :
                         state[prop] = item.value;
                         break;
                 }
+
                 console.log(state);
-            })
+            });
         });
     }
 
@@ -45,16 +46,7 @@ const changeModalState = (state) => {
     bindActionToElems('input', windowWidht, 'widht');
     bindActionToElems('change', windowType, 'type');
     bindActionToElems('change', windowProfile, 'type');
+
 };
-
-const firstButtonNext = document.querySelector('.popup_calc_button');
-
-firstButtonNext.addEventListener('click', (e) => {
-    let x = false;
-    if (x == false) {
-        e.preventDefault();
-        console.log('you cant click');
-    }
-});
 
 export default changeModalState;

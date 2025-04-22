@@ -1,4 +1,4 @@
-const modals = () => {
+const modals = (modalState) => {
     function bindModal(triggerSelector, modalSelector, closeSelector, closeClickOverlay = true) {
         const trigger = document.querySelectorAll(triggerSelector),
             modal = document.querySelector(modalSelector),
@@ -56,9 +56,31 @@ const modals = () => {
     bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
     bindModal('.phone_link', '.popup', '.popup .popup_close');
     bindModal('.popup_calc_btn', '.popup_calc', '.popup_calc_close');
-    bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false);
-    bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
+    // bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false)
+    // bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
     // showModalByTime('.popup', 60000);
+
+
+    const firstButtonNext = document.querySelector('.popup_calc_button');
+    const secondButtonNext = document.querySelector('.popup_calc_profile_button');
+
+    firstButtonNext.addEventListener('mousemove', () => {
+        if (Object.keys(modalState).length == 3) {
+            bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false);
+            console.log(`Отлично ${modalState}`);
+        } else {
+            console.log(`Упс, что-то пошло не так, вот. Ваш данные. ${modalState}`);
+        }
+    });
+
+    secondButtonNext.addEventListener('mousemove', () => {
+        if (Object.keys(modalState).length == 4) {
+            bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
+        } else {
+            console.log(`Упс, что-то пошло не так, вот. Ваш данные. ${modalState}`);
+        }
+    })
+
 };
 
 export default modals;
