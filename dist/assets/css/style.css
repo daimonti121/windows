@@ -18,6 +18,20 @@ body {
   color: red;
 }
 
+.faded {
+  animation: faded;
+  animation-duration: 1.5s;
+}
+
+@keyframes faded {
+  from {
+    opacity: 0.1;
+  } 
+  to {
+    opacity: 1;
+  }
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -1094,6 +1108,12 @@ textarea:focus {
   margin-top: 1rem;
   padding: 1rem 5rem;
 }
+
+.popup > img {
+  max-width: 95%;
+}
+
+
 
 /*Media*/
 @media (max-width: 1400px) {
