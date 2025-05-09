@@ -5,8 +5,8 @@ const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 
 // const dist = "./dist/";
-const dist = "./dist/";
-// const dist = "C:/OSPanel/home/windows"; // Тут адрес к серверу
+// const dist = "./dist/";
+const dist = "C:/OSPanel/home/windows"; // Тут адрес к серверу
 
 gulp.task("copy-html", () => {
   return gulp.src("./src/index.html")
