@@ -4,9 +4,8 @@ const gulp = require("gulp");
 const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 
-// const dist = "./dist/";
-// const dist = "./dist/";
-const dist = "C:/OSPanel/home/windows"; // Тут адрес к серверу
+const dist = "./windows-project/";
+// const dist = "C:/OSPanel/home/windows"; // Тут адрес к серверу
 
 gulp.task("copy-html", () => {
   return gulp.src("./src/index.html")
@@ -95,3 +94,4 @@ gulp.task("build-prod-js", () => {
 });
 
 gulp.task("default", gulp.parallel("watch", "build"));
+gulp.task("build-prod", gulp.parallel("copy-html", "copy-assets", "build-prod-js"));
